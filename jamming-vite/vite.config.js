@@ -9,8 +9,8 @@ export default defineConfig({
     strictPort: true,
     hmr: {
       protocol: 'wss',
-      // replace with your ngrok hostname when using ngrok, e.g. 'rosalia-....ngrok-free.dev'
-      host: 'rosalia-unswarming-semiexternally.ngrok-free.dev'
+      // replace with your ngrok hostname when using ngrok, e.g. '-....ngrok-free.dev'
+      host: 'yourengrokhttpaddresss....ngrok-free.dev'
     }
   }
 });
