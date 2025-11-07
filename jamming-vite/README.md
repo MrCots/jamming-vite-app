@@ -18,5 +18,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## THIS PROJECT HAS BEEN UPDATED
 Jamming up here is working with Vite 22, use of ngrok and authorization code with PKCE (inside of Spotify.js). Far more modern in easy to upgrate to newer version in the future as this has been done by me, MrCots in early November 2025.
-To make this codeacademy updated template work you will need to add your spotify ID and redirect address that ngrok provides you once you make it work (yes, you will have to create an account, install it, etc but that's easy) and insert both you ID and this address into the.env file in order to make it work and in vite.config.js.
+To make this codeacademy updated template work you will need to add your spotify ID and redirect address that ngrok provides you once you make it work (yes, you will have to create an account, install it, etc but that's easy) and insert both you ID and this address into the.env file in order to make it work and in vite.config.js. (without https)
 Hope you fin these quick instructions easy and for any further enquire do not hesitate to contact me via GitHub.
+
+Note: First submit to Github was the plain template, second and definetely was including the step 2, which is a loader. It may not show up if your internet is good and the spinner would only be seen if when saving the track to the playlist your internet is slow. You can test this in devtools-network-select 3g or slow 3g. Save a song in any playlist and you should see it.

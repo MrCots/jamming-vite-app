@@ -1,28 +1,54 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 
 import "./Playlist.css";
 
 import TrackList from "../TrackList/TrackList.jsx";
 
-const Playlist = (props) => {
+const Playlist = ({ playlistTracks, onRemove, onSave, onNameChange }) => {
+  const [isSaving, setIsSaving] = useState(false);
+
   const handleNameChange = useCallback(
     (event) => {
-      props.onNameChange(event.target.value);
+      onNameChange(event.target.value);
     },
-    [props.onNameChange]
+    [onNameChange]
   );
+
+  const handleSave = useCallback(async () => {
+    setIsSaving(true);
+    try {
+      // Ensure onSave can be awaited even if it isn't a Promise
+      await Promise.resolve(onSave());
+    } catch (err) {
+      console.error("Playlist save failed", err);
+    } finally {
+      setIsSaving(false);
+    }
+  }, [onSave]);
 
   return (
     <div className="Playlist">
       <input onChange={handleNameChange} defaultValue={"New Playlist"} />
       <TrackList
-        tracks={props.playlistTracks}
+        tracks={playlistTracks}
         isRemoval={true}
-        onRemove={props.onRemove}
+        onRemove={onRemove}
       />
-      <button className="Playlist-save" onClick={props.onSave}>
-        SAVE TO SPOTIFY
+      <button
+        type="button"
+        className="Playlist-save"
+        onClick={handleSave}
+        disabled={isSaving}
+        aria-busy={isSaving}
+      >
+        {isSaving ? "Saving..." : "SAVE TO SPOTIFY"}
       </button>
+
+      {isSaving && (
+        <div className="SavingOverlay" aria-hidden="true">
+          <div className="Spinner" />
+        </div>
+      )}
     </div>
   );
 };

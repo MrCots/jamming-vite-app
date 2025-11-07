@@ -1,4 +1,3 @@
-// ...existing code...
 const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID || 'your_fallback_id';
 const redirectUri = import.meta.env.VITE_SPOTIFY_REDIRECT_URI || `${window.location.origin}/callback`;
 let accessToken = null;
@@ -169,4 +168,3 @@ const Spotify = {
 };
 
 export default Spotify;
-// ...existing code...

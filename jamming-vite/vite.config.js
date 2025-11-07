@@ -10,7 +10,7 @@ export default defineConfig({
     hmr: {
       protocol: 'wss',
       // replace with your ngrok hostname when using ngrok, e.g. '-....ngrok-free.dev'
-      host: 'yourengrokhttpaddresss....ngrok-free.dev'
+      host: 'add-your-ngrok-hostname-here.ngrok-free.dev',
     }
   }
 });
